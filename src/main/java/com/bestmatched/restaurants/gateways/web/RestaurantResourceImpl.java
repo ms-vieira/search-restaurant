@@ -1,9 +1,9 @@
-package com.bestmatched.restaurants.gateways.web.resource.impl;
+package com.bestmatched.restaurants.gateways.web;
 
 import com.bestmatched.restaurants.gateways.web.request.ParameterRequest;
-import com.bestmatched.restaurants.gateways.web.resource.RestaurantResource;
+import com.bestmatched.restaurants.gateways.RestaurantResource;
 import com.bestmatched.restaurants.gateways.web.response.RestaurantResponse;
-import com.bestmatched.restaurants.usecases.SearchBestRestaurants;
+import com.bestmatched.restaurants.usecases.CustomizedRestaurantSearch;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
@@ -13,10 +13,10 @@ import java.io.FileNotFoundException;
 @RequiredArgsConstructor
 public class RestaurantResourceImpl implements RestaurantResource {
 
-    private final SearchBestRestaurants searchBestRestaurants;
+    private final CustomizedRestaurantSearch customizedRestaurantSearch;
 
     @Override
     public RestaurantResponse searchRestaurant(final ParameterRequest request) throws FileNotFoundException {
-        return searchBestRestaurants.search(request.toSearchRestaurant());
+        return customizedRestaurantSearch.search(request.toSearchRestaurant());
     }
 }

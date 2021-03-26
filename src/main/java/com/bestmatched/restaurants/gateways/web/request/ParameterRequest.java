@@ -13,13 +13,13 @@ public class ParameterRequest implements Serializable {
     private String restaurantName;
     @Min(1)
     @Max(5)
-    private int customerRating;
+    private Integer customerRating;
     @Min(1)
     @Max(10)
-    private int distance;
+    private Integer distance;
     @Min(10)
     @Max(50)
-    private int price;
+    private Integer price;
     private String cuisine;
 
     public SearchRestaurant toSearchRestaurant() {

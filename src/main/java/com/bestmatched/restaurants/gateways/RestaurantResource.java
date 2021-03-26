@@ -1,4 +1,4 @@
-package com.bestmatched.restaurants.gateways.web.resource;
+package com.bestmatched.restaurants.gateways;
 
 import com.bestmatched.restaurants.gateways.web.request.ParameterRequest;
 import com.bestmatched.restaurants.gateways.web.response.RestaurantResponse;

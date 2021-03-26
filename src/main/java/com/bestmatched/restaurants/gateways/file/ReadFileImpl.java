@@ -1,6 +1,6 @@
-package com.bestmatched.restaurants.gateways.file.impl;
+package com.bestmatched.restaurants.gateways.file;
 
-import com.bestmatched.restaurants.gateways.file.Read;
+import com.bestmatched.restaurants.gateways.ReadFile;
 import com.bestmatched.restaurants.gateways.file.record.CuisineRecord;
 import com.bestmatched.restaurants.gateways.file.record.RestaurantRecord;
 import com.opencsv.bean.CsvToBeanBuilder;
@@ -14,11 +14,11 @@ import java.util.List;
 
 @Slf4j
 @Component
-public class ReadImpl implements Read {
+public class ReadFileImpl implements ReadFile {
 
     @Override
     public Collection<RestaurantRecord> readCsvRestaurant() throws FileNotFoundException {
-        final String fileRestaurant = "/home/matheus/workspace/restaurants/src/main/resources/restaurants.csv";
+        final String fileRestaurant = "src/main/resources/restaurants.csv";
         final List<RestaurantRecord> restaurantRecords = new CsvToBeanBuilder<RestaurantRecord>(new FileReader(fileRestaurant))
                 .withType(RestaurantRecord.class)
                 .build()
@@ -30,7 +30,7 @@ public class ReadImpl implements Read {
 
     @Override
     public Collection<CuisineRecord> readCsvCuisine() throws FileNotFoundException {
-        final String fileCuisine = "/home/matheus/workspace/restaurants/src/main/resources/cuisines.csv";
+        final String fileCuisine = "src/main/resources/cuisines.csv";
         final List<CuisineRecord> cuisineRecords = new CsvToBeanBuilder<CuisineRecord>(new FileReader(fileCuisine))
                 .withType(CuisineRecord.class)
                 .build()
