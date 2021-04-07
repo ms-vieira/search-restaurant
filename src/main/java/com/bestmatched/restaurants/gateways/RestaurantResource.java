@@ -4,7 +4,6 @@ import com.bestmatched.restaurants.gateways.web.request.ParameterRequest;
 import com.bestmatched.restaurants.gateways.web.response.RestaurantResponse;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
 import java.io.FileNotFoundException;
 
 import static org.springframework.http.HttpStatus.OK;
@@ -15,6 +14,6 @@ public interface RestaurantResource {
 
     @PostMapping
     @ResponseStatus(OK)
-    RestaurantResponse searchRestaurant(@RequestBody @Valid final ParameterRequest request)
+    RestaurantResponse searchRestaurant(@RequestBody final ParameterRequest request)
             throws FileNotFoundException;
 }

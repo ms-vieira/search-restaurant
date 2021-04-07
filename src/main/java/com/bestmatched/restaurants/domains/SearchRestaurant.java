@@ -1,9 +1,9 @@
 package com.bestmatched.restaurants.domains;
 
 import com.bestmatched.restaurants.gateways.web.request.ParameterRequest;
-import lombok.Data;
+import lombok.Getter;
 
-@Data
+@Getter
 public class SearchRestaurant {
     private final String restaurantName;
     private final Integer customerRating;

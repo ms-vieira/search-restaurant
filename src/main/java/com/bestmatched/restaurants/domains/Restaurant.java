@@ -6,7 +6,6 @@ import lombok.Data;
 
 import java.util.Collection;
 import java.util.Comparator;
-import java.util.function.Predicate;
 
 import static java.lang.Integer.parseInt;
 
@@ -29,26 +28,6 @@ public class Restaurant {
                 .map(CuisineRecord::getName)
                 .findFirst()
                 .orElse("Not Found");
-    }
-
-    public static Predicate<Restaurant> nameFilter(final String nameSearch) {
-        return predicateName -> predicateName.getRestaurantName().toLowerCase().contains(nameSearch.toLowerCase());
-    }
-
-    public static Predicate<Restaurant> cuisineFilter(final String cuisineSearch) {
-        return predicateCuisine -> predicateCuisine.getCuisine().toLowerCase().contains(cuisineSearch.toLowerCase());
-    }
-
-    public static Predicate<Restaurant> ratingFilter(final Integer ratingSearch) {
-        return predicateRating -> predicateRating.getCustomerRating().compareTo(ratingSearch) >= 0;
-    }
-
-    public static Predicate<Restaurant> distanceFilter(final Integer distanceSearch) {
-        return predicateDistance -> predicateDistance.getDistance().compareTo(distanceSearch) <= 0;
-    }
-
-    public static Predicate<Restaurant> priceFilter(final Integer priceSearch) {
-        return predicatePrice -> predicatePrice.getPrice().compareTo(priceSearch) <= 0;
     }
 
     public static Comparator<Restaurant> comparator() {
