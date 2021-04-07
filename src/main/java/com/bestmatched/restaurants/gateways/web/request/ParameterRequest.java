@@ -1,11 +1,13 @@
 package com.bestmatched.restaurants.gateways.web.request;
 
 import com.bestmatched.restaurants.domains.SearchRestaurant;
+import lombok.Builder;
 import lombok.Data;
 
 import java.io.Serializable;
 
 @Data
+@Builder
 public class ParameterRequest implements Serializable {
     private String restaurantName;
     private Integer customerRating;

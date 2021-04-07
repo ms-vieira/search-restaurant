@@ -1,9 +1,11 @@
 package com.bestmatched.restaurants.gateways.file.record;
 
 import com.opencsv.bean.CsvBindByPosition;
+import lombok.Builder;
 import lombok.Data;
 
 @Data
+@Builder
 public class RestaurantRecord {
 
     @CsvBindByPosition(position = 0)

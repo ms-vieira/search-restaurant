@@ -33,13 +33,15 @@ http://localhost:8080/swagger-ui.html
 ```
 
 - Payload
-> {
-"cuisine": String -> (Chinese, American, Thai, etc.),
-"customerRating": Integer -> (1 star ~ 5 stars),
-"distance": Integer -> 1 mile ~ 10 miles,
-"price": Integer -> how much one person will spend on average, $10 ~ $50,
-"restaurantName": String -> Restaurant Name
-}
+```json
+{
+    "cuisine": String -> (Chinese, American, Thai, etc.),
+    "customerRating": Integer -> (1 star ~ 5 stars),
+    "distance": Integer -> 1 mile ~ 10 miles,
+    "price": Integer -> how much one person will spend on average, $10 ~ $50,
+    "restaurantName": String -> Restaurant Name
+}```
+
 
 [OpenCsv]: <http://opencsv.sourceforge.net/>
 [Lombok]: <https://projectlombok.org>

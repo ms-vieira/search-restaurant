@@ -2,7 +2,9 @@ package com.bestmatched.restaurants.domains;
 
 import com.bestmatched.restaurants.gateways.file.record.CuisineRecord;
 import com.bestmatched.restaurants.gateways.file.record.RestaurantRecord;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.Collection;
 import java.util.Comparator;
@@ -10,12 +12,14 @@ import java.util.Comparator;
 import static java.lang.Integer.parseInt;
 
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Restaurant {
-    private final String restaurantName;
-    private final Integer customerRating;
-    private final Integer distance;
-    private final Integer price;
-    private final String cuisine;
+    private String restaurantName;
+    private Integer customerRating;
+    private Integer distance;
+    private Integer price;
+    private String cuisine;
 
     public Restaurant(final RestaurantRecord restaurantRecord,
                       final Collection<CuisineRecord> cuisineRecords) {
