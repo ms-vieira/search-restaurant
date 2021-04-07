@@ -32,15 +32,27 @@ public class Restaurant {
 
     public static Comparator<Restaurant> comparator() {
         return (r1, r2) -> {
-            int c;
-            c = r1.getDistance().compareTo(r2.getDistance());
-            if (c == 0) {
-                c = r2.getCustomerRating().compareTo(r1.getCustomerRating());
-            }
-            if (c == 0) {
-                c = r1.getPrice().compareTo(r2.getPrice());
-            }
-            return c;
+            int result = comparatorDistance(r1, r2);
+            if (result == 0)
+                result = comparatorCustomerRating(r1, r2);
+            if (result == 0)
+                result = comparatorPrice(r1, r2);
+            return result;
         };
+    }
+
+    private static int comparatorDistance(final Restaurant restaurant1,
+                                          final Restaurant restaurant2) {
+        return restaurant1.getDistance().compareTo(restaurant2.getDistance());
+    }
+
+    private static int comparatorCustomerRating(final Restaurant restaurant1,
+                                                final Restaurant restaurant2) {
+        return restaurant2.getCustomerRating().compareTo(restaurant1.getCustomerRating());
+    }
+
+    private static int comparatorPrice(final Restaurant restaurant1,
+                                       final Restaurant restaurant2) {
+        return restaurant1.getPrice().compareTo(restaurant2.getPrice());
     }
 }

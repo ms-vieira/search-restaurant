@@ -29,18 +29,12 @@ public class CustomizedRestaurantSearch {
     public RestaurantResponse search(final SearchRestaurant searchRestaurant)
             throws FileNotFoundException {
         validation(apply(searchRestaurant));
+
         return new RestaurantResponse(getRestaurants().stream()
                 .filter(bestRestaurants(searchRestaurant))
                 .sorted(comparator())
                 .limit(5)
                 .collect(toList()));
-    }
-
-    private Collection<Restaurant> getRestaurants() throws FileNotFoundException {
-        final Collection<CuisineRecord> cuisineRecords = readFile.readCsvCuisine();
-        return readFile.readCsvRestaurant().stream()
-                .map(restaurant -> new Restaurant(restaurant, cuisineRecords))
-                .collect(toList());
     }
 
     private void validation(final Collection<Message> messages) {
@@ -51,5 +45,12 @@ public class CustomizedRestaurantSearch {
         return validators.stream()
                 .map(validator -> validator.execute(searchRestaurant))
                 .reduce(of(), CollectionUtils::concatLists);
+    }
+
+    private Collection<Restaurant> getRestaurants() throws FileNotFoundException {
+        final Collection<CuisineRecord> cuisineRecords = readFile.readCsvCuisine();
+        return readFile.readCsvRestaurant().stream()
+                .map(restaurant -> new Restaurant(restaurant, cuisineRecords))
+                .collect(toList());
     }
 }
