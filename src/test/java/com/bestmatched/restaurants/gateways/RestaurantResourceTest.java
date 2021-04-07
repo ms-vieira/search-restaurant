@@ -69,10 +69,19 @@ class RestaurantResourceTest {
     }
 
     private List<CuisineRecord> buildCuisine() {
-        return List.of(CuisineRecord.builder().id("1").name("chinese").build());
+        final CuisineRecord record = new CuisineRecord();
+        record.setId("1");
+        record.setName("chinese");
+        return List.of(record);
     }
 
     private List<RestaurantRecord> buildRestaurantRecord() {
-        return List.of(RestaurantRecord.builder().name("delicious").customerRating("4").distance("3").price("20").cuisineId("1").build());
+        final RestaurantRecord record = new RestaurantRecord();
+        record.setCuisineId("1");
+        record.setDistance("3");
+        record.setCustomerRating("4");
+        record.setPrice("20");
+        record.setName("delicious");
+        return List.of(record);
     }
 }
